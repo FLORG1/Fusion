@@ -8,6 +8,7 @@ let package = Package(
     products: [
         .library(
             name: "Media",
+            type: .dynamic,
             targets: ["Media"]),
     ],
     dependencies: [
