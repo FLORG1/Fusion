@@ -1,17 +1,23 @@
 import Media_Common
+
+#if os(iOS) || os(macOS)
 import AVFoundation
 
-fileprivate var audioPlayer: AVAudioPlayer!
-
-public extension AudioPlayer {
-  func play() {
-    do {
-      audioPlayer = try AVAudioPlayer(contentsOf: self.url)
-      audioPlayer.prepareToPlay()
-      audioPlayer.play()
-
-    } catch let error {
-      print(error.localizedDescription)
-    }
+public class AudioPlayer {
+  let url: URL    
+  var player: AVAudioPlayer? = nil  
+  
+  public required init(url: URL) {
+    self.url = url    
   }
 }
+
+
+extension AudioPlayer: AudioPlayerProtocol {
+  public func play() {
+    player = try? AVAudioPlayer(contentsOf: self.url)
+    player?.prepareToPlay()
+    player?.play()
+  }
+}
+#endif
