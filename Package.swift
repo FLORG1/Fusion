@@ -8,11 +8,11 @@ let package = Package(
     products: [
         .library(
             name: "Media",
-            type: .dynamic,
             targets: ["Media"]),
     ],
     dependencies: [
-        .package(name: "Android", url: "git@github.com:FLORG1/swift-android.git", .branch("master"))
+        //.package(name: "Android", url: "git@github.com:FLORG1/swift-android.git", .branch("master"))
+        .package(name: "Android", path: "../swift-android")
     ],
     targets: [
         .target(
@@ -33,11 +33,12 @@ let package = Package(
             ]                        
         ),            	
         .target(
-            name: "Media_Android",                        
+            name: "Media_Android",
             dependencies: [
               .target(name: "Media_Common"),
               .product(name: "AndroidMedia", package: "Android", condition: .when(platforms: [.android]))
-            ]            
+            ],
+            resources: [.copy("Generated/Media.java")]
         )
     ]
 )

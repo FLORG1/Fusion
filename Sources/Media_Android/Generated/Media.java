@@ -1,4 +1,4 @@
-package Media;
+package Media_Android;
 
 class MediaPlayerListener implements android.media.MediaPlayer.OnPreparedListener {
   private long _ptr;
