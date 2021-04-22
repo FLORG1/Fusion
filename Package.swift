@@ -4,11 +4,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "Fusion",
+    name: "FusionMedia",
     products: [
         .library(
-            name: "Media",
-            targets: ["Media"]),
+            name: "FusionMedia",
+            targets: ["FusionMedia"]),
     ],
     dependencies: [
         //.package(name: "Android", url: "git@github.com:FLORG1/swift-android.git", .branch("master"))
@@ -16,26 +16,26 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Media",
+            name: "FusionMedia",
             dependencies: [
-              .target(name: "Media_Common"),              
-              .target(name: "Media_iOS", condition: .when(platforms: [.iOS, .macOS])),
-              .target(name: "Media_Android", condition: .when(platforms: [.android])),
+              .target(name: "FusionMedia_Common"),              
+              .target(name: "FusionMedia_Apple", condition: .when(platforms: [.iOS, .macOS])),
+              .target(name: "FusionMedia_Android", condition: .when(platforms: [.android])),
             ]            
         ),
         .target(
-            name: "Media_Common"
+            name: "FusionMedia_Common"
         ),        
         .target(
-            name: "Media_iOS",
+            name: "FusionMedia_Apple",
             dependencies: [
-              .target(name: "Media_Common"),
+              .target(name: "FusionMedia_Common"),
             ]                        
         ),            	
         .target(
-            name: "Media_Android",
+            name: "FusionMedia_Android",
             dependencies: [
-              .target(name: "Media_Common"),
+              .target(name: "FusionMedia_Common"),
               .product(name: "AndroidMedia", package: "Android", condition: .when(platforms: [.android]))
             ],
             resources: [.copy("Generated/Media.java")]

@@ -1,7 +1,7 @@
 import Java
 import Foundation
 import AndroidMedia
-import Media_Common
+import FusionMedia_Common
 
 
 public class AudioPlayer {
@@ -17,6 +17,8 @@ public class AudioPlayer {
 
 extension AudioPlayer: AudioPlayerProtocol {
   public func play() {
+    guard let isPlaying = self.player?.isPlaying(), !isPlaying else { return }
+    
     self.player = MediaPlayer()
     self.listener = MediaPlayerListener()        
             
@@ -27,8 +29,7 @@ extension AudioPlayer: AudioPlayerProtocol {
 }
 
 class MediaPlayerListener: Object, MediaPlayer.OnPreparedListener {  
-  public func onPrepared(mp: MediaPlayer?) {
-         
+  public func onPrepared(mp: MediaPlayer?) {     
     mp?.start();
   }
 }

@@ -3,7 +3,7 @@
 import Java
 import AndroidMedia
 
-@_silgen_name("Java_Media_1Android_MediaPlayerListener_onPreparedImpl")
+@_silgen_name("Java_FusionMedia_1Android_MediaPlayerListener_onPreparedImpl")
 public func MediaPlayerListener_onPreparedImpl(env: UnsafeMutablePointer<JNIEnv>, obj: JavaObject?, ptr: JavaLong, mp: JavaObject?) -> Void {  
   let _obj = unsafeBitCast(Int(truncatingIfNeeded:ptr), to: MediaPlayerListener.self)
  

@@ -1,6 +1,4 @@
-import Media_Common
-
-#if os(iOS) || os(macOS)
+import FusionMedia_Common
 import AVFoundation
 
 public class AudioPlayer {
@@ -18,6 +16,6 @@ extension AudioPlayer: AudioPlayerProtocol {
     player = try? AVAudioPlayer(contentsOf: self.url)
     player?.prepareToPlay()
     player?.play()
+
   }
 }
-#endif
