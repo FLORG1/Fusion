@@ -11,8 +11,8 @@ let package = Package(
             targets: ["FusionMedia"]),
     ],
     dependencies: [
-        //.package(name: "Android", url: "git@github.com:FLORG1/swift-android.git", .branch("master"))
-        .package(name: "Android", path: "../swift-android")
+        .package(name: "Android", url: "git@github.com:FLORG1/swift-android.git", .branch("master"))
+        //.package(name: "Android", path: "../swift-android")
     ],
     targets: [
         .target(
