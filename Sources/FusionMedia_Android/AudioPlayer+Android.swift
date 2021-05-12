@@ -29,7 +29,7 @@ extension AudioPlayer: AudioPlayerProtocol {
 }
 
 class MediaPlayerListener: Object, MediaPlayer.OnPreparedListener {  
-  public func onPrepared(mp: MediaPlayer?) {     
+  func onPrepared(mp: MediaPlayer?) {     
     mp?.start();
   }
 }
